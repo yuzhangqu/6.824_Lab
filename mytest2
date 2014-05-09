@@ -1,0 +1,13 @@
+#!/bin/sh
+sudo ./start.sh 5
+for a in `seq 1 50`
+do
+    echo "#################################"
+    echo "  第  $a  次  执  行  "
+    echo "#################################"
+    OLDTIME=`date +%s`
+    sudo ./test-lab-3-a ./yfs1 ./yfs2
+    sudo ./test-lab-3-b ./yfs1 ./yfs2
+    NEWTIME=`date +%s`
+    echo "Time cost is: $((${NEWTIME}-${OLDTIME})) seconds"
+done
